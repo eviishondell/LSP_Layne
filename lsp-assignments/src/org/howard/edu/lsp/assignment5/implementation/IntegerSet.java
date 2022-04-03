@@ -1,5 +1,7 @@
 package org.howard.edu.lsp.assignment5.implementation;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.*;
 /**
 *@author eviishondell
@@ -133,19 +135,29 @@ public class IntegerSet{
     
  }
  /**
-  * Return String representation of your set
-  */
- public String toString() {
-	 return this.list.toString();
- }
- 
- public boolean contains(int value) {
-	 if (this.list.contains(value) == true) {
-		 return true;
-	 }
-	 else {
-		 return false;
-	 }
+ * toString
+ * JUnit case
+ */
+ @Test
+ @DisplayName("Test cases for tostring")
+ public void testtoString() {
+ ArrayList<Integer> list_one = new ArrayList<>(); 
+ IntegerSet setA = new IntegerSet(list_one);
+
+ setA.add(13);
+ setA.add(4);
+ setA.add(88);
+ setA.add(2);
+ setA.add(60);
+ setA.add(6);
+
+ String example = "[13, 4, 88, 2, 60, 6]";
+ String str = setA.toString();
+
+ System.out.println(setA.toString());
+ System.out.println(example);
+ assertEquals(example, setA.toString());
+ setA.clear();
  }
 
 /**
@@ -208,6 +220,12 @@ IntegerSet list4= new IntegerSet(list);
  public ArrayList<Integer> getlist(){
      return list;
  }
+
+
+public boolean contains(int i) {
+	// TODO Auto-generated method stub
+	return null != null;
+}
 
 
 }
