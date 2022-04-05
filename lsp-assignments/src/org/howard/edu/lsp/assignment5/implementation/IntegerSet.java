@@ -138,26 +138,27 @@ public class IntegerSet{
  * toString
  * JUnit case
  */
- @Test
- @DisplayName("Test cases for tostring")
- public void testtoString() {
+// @Test
+// @DisplayName("Test cases for tostring")
+ public String testtoString() {
  ArrayList<Integer> list_one = new ArrayList<>(); 
  IntegerSet setA = new IntegerSet(list_one);
+ return this.list.toString();
 
- setA.add(13);
- setA.add(4);
- setA.add(88);
- setA.add(2);
- setA.add(60);
- setA.add(6);
-
- String example = "[13, 4, 88, 2, 60, 6]";
- String str = setA.toString();
-
- System.out.println(setA.toString());
- System.out.println(example);
- assertEquals(example, setA.toString());
- setA.clear();
+// setA.add(13);
+// setA.add(4);
+// setA.add(88);
+// setA.add(2);
+// setA.add(60);
+// setA.add(6);
+//
+// String example = "[13, 4, 88, 2, 60, 6]";
+// String str = setA.toString();
+//
+// System.out.println(setA.toString());
+// System.out.println(example);
+// assertEquals(example, setA.toString());
+// setA.clear();
  }
 
 /**

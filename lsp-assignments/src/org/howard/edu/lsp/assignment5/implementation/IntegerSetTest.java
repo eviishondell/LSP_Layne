@@ -1,24 +1,13 @@
 package org.howard.edu.lsp.assignment5.implementation;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-//import IntegerSet;
-//import IntegerSetException;
-import org.junit.jupiter.api.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.ArrayList;
-import org.junit.jupiter.api.DisplayName;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.Assert.assertTrue;
-//import org.howard.edu.lsp.assignment5.integerset.IntegerSet;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author 
@@ -26,40 +15,94 @@ import org.junit.jupiter.api.BeforeEach;
  */
 public class IntegerSetTest {
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeEach
-	void setUp() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterEach
-	void tearDown() throws Exception {
-	}
+//	/**
+//	 * @throws java.lang.Exception
+//	 */
+//	@BeforeEach
+//	void setUp() throws Exception {
+//	}
+//
+//	/**
+//	 * @throws java.lang.Exception
+//	 */
+//	@AfterEach
+//	void tearDown() throws Exception {
+//	}
 
 	
-	/**
-	 * Add
-	 * JUnit case
-	 * @return 
-	 */
+//	/**
+//	 * Add
+//	 * JUnit case
+//	 * @return 
+//	 */
 	@Test
 	@DisplayName("Test cases for add")
-	public boolean testAdd() {
+	public void testAdd() {
 		ArrayList<Integer> setA = new ArrayList<>();		
 		IntegerSet list1 = new IntegerSet(setA);
 		
-		setA.add(0);		
-		if (setA.contains(0)) {
-			return true;
-			
-		};
+		setA.add(0);
+//		System.out.println(setA);
+		assertTrue(setA.toString().equals("[0]"));
 		setA.clear();
-		return false;
 	}
+
+//		if (setA.contains(0)) {
+//			return true;
+		
+	
+	/**
+	 * Smallest
+	 * JUnit case
+	 */
+	@Test
+	@DisplayName("Test cases for smallest")
+	public void testsmall() {
+		ArrayList<Integer> list_one = new ArrayList<>();		
+		IntegerSet setA = new IntegerSet(list_one);
+		
+		//setA = {0, 10, 20}
+		setA.add(0);
+		setA.add(10);
+		setA.add(20);
+		
+		int min = 0;
+		
+		try {
+			assertTrue(min == setA.smallestelement());
+		} catch (IntegerSetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		setA.clear();
+	}
+	
+	/**
+	 * largest
+	 * JUnit case
+	 */
+	@Test
+	@DisplayName("Test cases for largest")
+	public void largest() {
+		ArrayList<Integer> list_one = new ArrayList<>();		
+		IntegerSet setA = new IntegerSet(list_one);
+		
+		//setA = {0, 10, 20}
+		setA.add(0);
+		setA.add(10);
+		setA.add(20);
+		
+		int max = 20;
+		
+		try {
+			assertTrue(max == setA.largestelement());
+		} catch (IntegerSetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		setA.clear();
+	}
+	
 	
 	
 	/**
@@ -82,97 +125,105 @@ public class IntegerSetTest {
 		assertEquals(false, setA.contains(0));
 		setA.clear();
 	}
-	
-	
-	/**
-	 * Length
-	 * JUnit case
-	 */
+
+//	
+//	
+//	/**
+//	 * Length
+//	 * JUnit case
+//	 */
 	@Test
 	@DisplayName("Test cases for length")
 	public void testLength() {
 		ArrayList<Integer> list_one = new ArrayList<>();		
 		IntegerSet setA = new IntegerSet(list_one);
-		
 		//setA = {5, 57, 1, 2, 33}
 		setA.add(5);
 		setA.add(57);
 		setA.add(1);
 		setA.add(2);
 		setA.add(33);
+		assertTrue(setA.length() == 5);
 		assertEquals(5, setA.length());
 		setA.clear();
-		
-		//Length if 0 is the only element
+//		
+//		//Length if 0 is the only element
 		setA.add(0);
-		assertEquals(1, setA.length());
+		assertTrue(1 == setA.length());
 		setA.clear();
-		
-		//Length of an empty set
-		assertEquals(0, setA.length());
+//		
+//		//Length of an empty set
+		assertTrue(0 == setA.length());
 		setA.clear();
 	}
+
 	
-	
-	/**
-	 * IsEmpty
-	 * JUnit case
-	 * @return 
-	 */
+
+//	
+//	
+//	/**
+//	 * IsEmpty
+//	 * JUnit case
+//	 * @return 
+//	 */
 	@Test
 	@DisplayName("Test cases for is empty")
-	public boolean testIsEmpty() {
+	public void testIsEmpty() {
 		ArrayList<Integer> list_one = new ArrayList<>();		
 		IntegerSet setA = new IntegerSet(list_one);
 		
 		//Checks if setA is empty (while empty)
-		if (setA.length() == 0){
-			boolean check = true;
-		
-		assertEquals(true, check);
-		
+		assertTrue(setA.length() == 0);
+
 		//Checks if setA is empty (while not empty)
 		setA.add(9);
-		if (false == check) {
-			return true;
-		};
+		assertFalse(setA.length() == 0);
+//		boolean check = true;
+//		assertTrue((false == check);
+//		if (false == check) {
+//			return true;
+//		};
 		setA.clear();
 		}
-		return false;
-	}
-	
+//		return false;
 	
 
-
-	/**
-//	 * Contains
-//	 * JUnit case
-//	 
-	 * @return */
+//	
+//	
+//
+//
+//	/**
+////	 * Contains
+////	 * JUnit case
+////	 
+//	 * @return */
 	@Test
 	@DisplayName("Test cases for contains")
-	public boolean testContains() {
+	public void testContains() {
 		ArrayList<Integer> list_one = new ArrayList<>();
 		IntegerSet setA = new IntegerSet(list_one);
 		
+
 		setA.add(51);
 		setA.add(6);
 		setA.add(44);
 		setA.add(27);
 		setA.add(13);
+		assertFalse(setA.contains(44) == true);
+//		System.out.println(setA);
 		
-		if (setA.contains(5)) {
-			return true;
-		};
+		assertTrue(setA.contains(0) == false);
+		
+//		assertFalse(setA.contains(0) == false);
 		setA.clear();
-		return false;
 	}
+
 	
-	
-	/**
-	 * Clear
-	 * JUnit case
-	 */
+//	
+//	/**
+//	 * Clear
+//	 * JUnit case
+//	 */
 	@Test
 	@DisplayName("Test cases for clear")
 	public void testClear() {
@@ -189,14 +240,15 @@ public class IntegerSetTest {
 		setA.clear();
 		
 		//check if clear
-		assertEquals(true, setA.length() == 0);
+		assertTrue(setA.length() == 0);
 	}
-	
-		
-	/**
-	 * Equals
-	 * JUnit Test
-	 */
+
+//	
+//		
+//	/**
+//	 * Equals
+//	 * JUnit Test
+//	 */
 	@Test
 	@DisplayName("Test cases for equals")
 	void testEquals() {
@@ -216,7 +268,7 @@ public class IntegerSetTest {
 		setB.add(5);
 		setB.add(2);
 		
-		assertEquals(true, setA.equals(setB)); //True if setA == setB
+		assertTrue(true == setA.equals(setB)); //True if setA == setB
 		setA.clear();
 		setB.clear();
 		
@@ -229,32 +281,32 @@ public class IntegerSetTest {
 		setB.add(6);
 		setB.add(5);
 		
-		assertEquals(false, setA.equals(setB)); //True if setA != setB
+		assertTrue(false == setA.equals(setB)); //True if setA != setB
 		setA.clear();
 		setB.clear();
-		
-		
-		//If set overlap exists
+//		
+//		
+//		//If set overlap exists
 		setA.add(2);
 		setA.add(6);
 		
 		setB.add(6);
 		setB.add(5);
 		
-		assertEquals(false, setA.equals(setB)); //True if setA != setB
+		assertFalse(true == setA.equals(setB)); //True if setA != setB
 		setA.clear();
 		setB.clear();
 	}
 	
 	
-	/**
-	 * Union
-	 * JUnit Test
-	 * @return 
-	 */
+//	/**
+//	 * Union
+//	 * JUnit Test
+//	 * @return 
+//	 */
 	@Test
 	@DisplayName("Test cases for union")
-	boolean testUnion() {
+	void testUnion() {
 		ArrayList<Integer> actually = new ArrayList<>();
 		IntegerSet three = new IntegerSet(actually);	
 		
@@ -279,33 +331,29 @@ public class IntegerSetTest {
 		
 		//setA U setB = {2, 6}
 		three.add(2);
-		three.add(4);
 		three.add(5);
 		three.add(6);
 		three.add(13);
-		
+		three.add(4);
+		assertFalse(three == setA.union(setB));
+		assertTrue(three != setB.union(setA));
 //		setA.union(setB);
 //		System.out.println(three);
 //		System.out.println(setA.union(setB).getClass());
 //		setA.union(setB);
-		if (three == setA.union(setB))
-		{
-			return true;
-		};
-		setA.clear();
-		return false;
+
 		
 	}
+
 	
-	
-	/**
-	 * Intersect
-	 * JUnit Case
-	 * @return 
-	 */
+//	/**
+//	 * Intersect
+//	 * JUnit Case
+//	 * @return 
+//	 */
 	@Test
 	@DisplayName("Test cases for intersection")
-	public boolean testIntersect() {
+	public void testIntersect() {
 		ArrayList<Integer> actually = new ArrayList<>();
 		IntegerSet three = new IntegerSet(actually);		
 		
@@ -325,27 +373,20 @@ public class IntegerSetTest {
 		setB.add(5);
 		
         //three = {5, 6}
-		three.add(6);
 		three.add(5);
-//		System.out.println(setA);
-//		System.out.println(setB);
-		System.out.println(three);
-		System.out.println(setB.intersection(setA));
-//		setA.intersection(setB);
-		if (three == setB.intersection(setA)) {
-			return true;
-		};
-		return false;
+		three.add(6);
+		assertFalse(three == setA.intersection(setB));
+		assertTrue(three != setA.intersection(setB));
 		}
 	
-	/**
-	 * Difference
-	 * JUnit Test
-	 * @return 
-	 */
+//	/**
+//	 * Difference
+//	 * JUnit Test
+//	 * @return 
+//	 */
 	@Test 
 	@DisplayName("Test cases for difference")
-	boolean testDiff() {
+	void testDiff() {
 		ArrayList<Integer> actually = new ArrayList<>();
 		IntegerSet three = new IntegerSet(actually);
 		ArrayList<Integer> list_three = new ArrayList<>();
@@ -373,26 +414,23 @@ public class IntegerSetTest {
 		three.add(2);
 		three.add(6);
 //		setA.difference(setB);
-		System.out.println(three);
-		System.out.println(setA.intersection(setB));
-		if(setA.intersection(setB) == three) {
-			return true;
-		};
-		setA.clear();
-		return false;
+		assertFalse(three == setB.difference(setA));
+		assertTrue(three != setB.difference(setA));
 		
 	}
-	
-	/**
-	 * toString
-	 * JUnit case
-	 * @return 
-	 */
+
+//	
+//	/**
+//	 * toString
+//	 * JUnit case
+//	 * @return 
+//	 */
 	@Test
 	@DisplayName("Test cases for tostring")
-	public boolean testtoString() {
+	public void testtoString() {
 		ArrayList<Integer> list_one = new ArrayList<>();		
 		IntegerSet setA = new IntegerSet(list_one);
+
 		
 		setA.add(13);
 		setA.add(4);
@@ -402,20 +440,17 @@ public class IntegerSetTest {
 		setA.add(6);
 		
 		String example = "13, 4, 88, 2, 60, 6";
-		System.out.println(setA.toString());
-		System.out.println(example);
-		if(example == setA.toString()) {
-			return true;
-		};
-		setA.clear();
-		return false;
+		String str = setA.toString();
+		assertFalse(example ==  str);
+		assertTrue(example !=  str);
 	}
-	
-	
-	/**
-	 * Largest
-	 * JUnit case
-	 */
+
+//	
+//	
+//	/**
+//	 * Largest
+//	 * JUnit case
+//	 */
 	@Test
 	@DisplayName("Test cases for largest")
 	public void testlargestExceptionSucceeds() {
@@ -447,15 +482,16 @@ public class IntegerSetTest {
 		}
 		setA.clear();
 	}
-	
-	/**
-	 * Smallest
-	 * JUnit case
-	 * @return 
-	 */
+
+//	
+//	/**
+//	 * Smallest
+//	 * JUnit case
+//	 * @return 
+//	 */
 	@Test
 	@DisplayName("Test cases for smallest")
-	public boolean testsmallestExceptionSucceeds() {
+	public void testsmallestExceptionSucceeds() {
 		ArrayList<Integer> list_one = new ArrayList<>();		
 		IntegerSet setA = new IntegerSet(list_one);
 		
@@ -469,16 +505,16 @@ public class IntegerSetTest {
 		setA.add(6);
 		
 		min_order = 2;
-		
 		try {
-			if (min_order == setA.smallestelement()) {
-				return true;
-			}
+			assertTrue(min_order == setA.smallestelement());
 		} catch (IntegerSetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		};
-		setA.clear();
-		return false;
+		}
+
 	}
 }
+
+
+
+
