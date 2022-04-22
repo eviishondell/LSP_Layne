@@ -1,6 +1,7 @@
 package org.howard.edu.lsp.assignment5.implementation;
-
+import org.howard.edu.lsp.assignment5.implementation.IntegerSetException;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -14,6 +15,9 @@ import org.junit.jupiter.api.Test;
  * Evolone Layne
  */
 public class IntegerSetTest {
+
+private static final String IntegerSetException = null;
+
 
 //	/**
 //	 * @throws java.lang.Exception
@@ -143,6 +147,7 @@ public class IntegerSetTest {
 		setA.add(1);
 		setA.add(2);
 		setA.add(33);
+		
 		assertTrue(setA.length() == 5);
 		assertEquals(5, setA.length());
 		setA.clear();
@@ -438,7 +443,7 @@ public class IntegerSetTest {
 		setA.add(2);
 		setA.add(60);
 		setA.add(6);
-		
+//		assertTrue(setA.toString().equals("[0]"));
 		String example = "13, 4, 88, 2, 60, 6";
 		String str = setA.toString();
 		assertFalse(example ==  str);
@@ -513,8 +518,7 @@ public class IntegerSetTest {
 		}
 
 	}
+	
+
+
 }
-
-
-
-

@@ -64,7 +64,7 @@ public class IntegerSet{
  public int largestelement() throws IntegerSetException {
      
      if(list.size()==0) {
-    	 IntegerSetException e= new IntegerSetException();
+    	 IntegerSetException e= new IntegerSetException(null);
          throw e;
      }
      
@@ -85,7 +85,7 @@ public class IntegerSet{
  public int smallestelement() throws IntegerSetException {// throws  Listemptyexception {
     
      if(list.size()==0) {
-         IntegerSetException e= new IntegerSetException();
+         IntegerSetException e= new IntegerSetException(null);
          throw e;
      }
     
